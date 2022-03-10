@@ -1,22 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
+import clavedeDo from "./assets/clavedeDo.png";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div>
+          <img src={clavedeDo} alt="" height="80px" width="80px"></img>
+          <p>MusicAll store</p>
+        </div>
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Know us
         </a>
+        <Button>bootstrap</Button>
       </header>
     </div>
   );
