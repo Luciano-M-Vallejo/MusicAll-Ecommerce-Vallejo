@@ -1,0 +1,29 @@
+.img-header {
+  animation: slide-in 0.7s both;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-1000px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.button {
+  animation: opacity 2s both;
+  animation-delay: 1s;
+}
+
+@keyframes opacity {
+  100% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0;
+  }
+  /* 0% {
+    opacity: 1;
+  } */
+}
