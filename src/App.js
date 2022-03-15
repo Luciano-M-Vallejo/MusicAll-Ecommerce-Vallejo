@@ -4,9 +4,8 @@ import NavBar from "./components/navbar-comp/NavBar.js";
 function App() {
   return (
     <div className="App">
-      <header>
-        <NavBar />
-      </header>
+      <NavBar />
+      <header className="App-header"> MusicAll </header>
     </div>
   );
 }

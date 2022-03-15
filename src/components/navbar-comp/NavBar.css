@@ -1,3 +1,7 @@
+.navbar {
+  padding: 20px;
+}
+
 .img-header {
   animation: slide-in 0.7s both;
 }

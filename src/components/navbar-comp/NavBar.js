@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <header>
       <div>
-        <Stack spacing={6} direction="row">
+        <Stack spacing={6} direction="row" className="navbar">
           <img
             src={clavedeDo}
             className="img-header"
