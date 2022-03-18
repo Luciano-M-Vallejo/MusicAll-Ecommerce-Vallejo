@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import clavedeDo from "../../assets/img/clavedeDo.png";
 import Stack from "@mui/material/Stack";
 import "./NavBar.css";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (
@@ -27,6 +28,7 @@ const NavBar = () => {
           <Button variant="contained" size="small" className="button">
             Contactos
           </Button>
+          <CartWidget />
         </Stack>
         {/* <div>
           <ul>
