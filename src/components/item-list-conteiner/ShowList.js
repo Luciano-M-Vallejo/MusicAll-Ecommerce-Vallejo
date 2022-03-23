@@ -13,19 +13,27 @@ const ShowList = ({ children }) => {
       >
         <ItemListContainer
           title="Chello"
-          typeInstrument="cuerdas"
+          typeInstrument="Cuerdas"
           price={100}
+          stock={15}
         />
-        <ItemListContainer title="Saxo" typeInstrument="viento" price={100} />
+        <ItemListContainer
+          title="Saxo"
+          typeInstrument="Viento"
+          price={100}
+          stock={10}
+        />
         <ItemListContainer
           title="Timbal"
-          typeInstrument="percucion"
+          typeInstrument="Percucion"
           price={100}
+          stock={5}
         />
         <ItemListContainer
           title="Bajo"
-          typeInstrument="electronico"
+          typeInstrument="Electronico"
           price={100}
+          stock={30}
         />
       </Stack>
     </div>
