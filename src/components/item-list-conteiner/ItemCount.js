@@ -1,3 +1,4 @@
+import "./items.css";
 import { useState } from "react";
 import { TextField, Button, ButtonGroup } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -5,18 +6,18 @@ import AddIcon from "@mui/icons-material/Add";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Counter = (props) => {
-  const { stock, reduceStock, backStock } = props;
-  const [count, setCount] = useState(0);
+  const { stock } = props;
+  const [count, setCount] = useState(1);
 
   const addCart = () => {
     setCount(count + 1);
-    reduceStock();
   };
   const removeCart = () => {
     setCount(count - 1);
-    backStock();
   };
-
+  const onAdd = () => {
+    window.alert("Usted agrego al Carrito " + count + " items");
+  };
   return (
     <div>
       <div>
@@ -25,7 +26,7 @@ const Counter = (props) => {
             aria-label="reduce"
             variant="contained"
             onClick={removeCart}
-            disabled={count === 0}
+            disabled={count === 1}
           >
             <RemoveIcon fontSize="small" />
           </Button>
@@ -40,7 +41,7 @@ const Counter = (props) => {
             aria-label="increase"
             variant="contained"
             onClick={addCart}
-            disabled={stock === 0}
+            disabled={count === stock}
           >
             <AddIcon fontSize="small" />
           </Button>
@@ -51,9 +52,10 @@ const Counter = (props) => {
           variant="contained"
           size="small"
           className="itemButton"
-          disabled={count === 0}
+          onClick={onAdd}
         >
-          Agregar al Carrito <ShoppingCartIcon className="carrito" />
+          Agregar al Carrito{" "}
+          <ShoppingCartIcon className="carrito" color="secundary" />
         </Button>
       </div>
     </div>

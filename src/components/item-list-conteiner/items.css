@@ -1,10 +1,15 @@
 .item-list-container {
   text-align-last: center;
 }
+
 .carrito {
-  color: black;
   padding-left: 5px;
 }
+
+.css-i4bv87-MuiSvgIcon-root {
+  color: red;
+}
+
 .grupo {
   padding: 20px;
 }

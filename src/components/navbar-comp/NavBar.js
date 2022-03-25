@@ -7,7 +7,7 @@ import CartWidget from "./CartWidget";
 const NavBar = () => {
   return (
     <header>
-      <div>
+      <div className="navbar_body">
         <Stack spacing={6} direction="row" className="navbar">
           <img
             src={clavedeDo}
@@ -30,22 +30,6 @@ const NavBar = () => {
           </Button>
           <CartWidget />
         </Stack>
-        {/* <div>
-          <ul>
-            <li>
-              <Button variant="home">Home</Button>
-            </li>
-            <li>
-              <Button variant="productos">Productos</Button>
-            </li>
-            <li>
-              <Button variant="nosotros">Nosotros</Button>
-            </li>
-            <li>
-              <Button variant="contactos">Contactos</Button>
-            </li>
-          </ul>
-        </div> */}
       </div>
     </header>
   );

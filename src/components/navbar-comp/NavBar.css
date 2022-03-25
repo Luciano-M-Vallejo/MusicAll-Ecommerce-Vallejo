@@ -5,6 +5,7 @@
 
 .img-header {
   animation: slide-in 0.7s both;
+  filter: invert(0.3) sepia(1) hue-rotate(320deg) saturate(1000%);
 }
 
 @keyframes slide-in {
@@ -28,7 +29,8 @@
   0% {
     opacity: 0;
   }
-  /* 0% {
-    opacity: 1;
-  } */
+}
+
+.navbar_body {
+  background: #282c34;
 }
