@@ -1,6 +1,4 @@
 import ItemListContainer from "./ItemListContainer";
-import Stack from "@mui/material/Stack";
-import { Divider } from "@mui/material";
 import Items from "./Items.js";
 import { useState, useEffect } from "react";
 
