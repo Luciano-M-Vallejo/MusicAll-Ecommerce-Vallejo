@@ -8,7 +8,7 @@ function App() {
       <NavBar />
       <header className="App-header">
         <ShowList>
-          <p>Listado de Instrumentos</p>
+          <p>Productos en Oferta</p>
         </ShowList>
       </header>
     </div>
