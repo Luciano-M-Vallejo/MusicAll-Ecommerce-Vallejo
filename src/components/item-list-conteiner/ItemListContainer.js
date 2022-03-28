@@ -36,7 +36,7 @@ const ItemListContainer = ({ data }) => {
         <CardActions>
           <ItemCount stock={stock} />
         </CardActions>
-        <Typography variant="h5" color="black" className="stockText">
+        <Typography variant="h7" color="black" className="stockText">
             Stock Disponible: { stock}
           </Typography>
       </Card>

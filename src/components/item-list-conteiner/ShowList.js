@@ -1,8 +1,7 @@
 import ItemListContainer from "./ItemListContainer";
 import Items from "./Items.js";
 import { useState, useEffect } from "react";
-
-
+import Stack from '@mui/material/Stack';
 
 
 const ShowList = ({ children }) => {
@@ -39,12 +38,14 @@ const ShowList = ({ children }) => {
   return (
     <div className="showItems">
       <h3>{children}</h3>
-      {products.map((product) => {
-        const { id } = product
-        return (
-          <ItemListContainer data={product} key={id}/>
-        )
-      })}
+      <Stack direction="row" spacing={2}>
+        {products.map((product) => {
+          const { id } = product
+          return (
+            <ItemListContainer data={product} key={id}/>
+          )
+        })}
+      </Stack>
     </div>
   );
 };
