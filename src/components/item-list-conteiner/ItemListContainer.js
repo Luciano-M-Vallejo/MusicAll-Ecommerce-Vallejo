@@ -1,19 +1,25 @@
+//STYLES
 import "./items.css";
-import ItemCount from "./ItemCount.js";
+
+//LYBRARIES
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material'
+
+//COMPONENTS
+import ItemCount from "./ItemCount.js";
 
 
 
 const ItemListContainer = ({ data }) => {
-  const {name, type, price, stock, img } = data;
+  const { name, type, price, stock, img } = data;
+  
 
   return (
     <div className="item-list-container">
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345 }} >
         <CardActionArea>
         <CardMedia
           component="img"
@@ -40,14 +46,6 @@ const ItemListContainer = ({ data }) => {
             Stock Disponible: { stock}
           </Typography>
       </Card>
-      {/* <img src={img} alt={name } />
-      <h1>{name}</h1>
-      <p>{type}</p>
-      <p> $ {price}</p>
-      <p>Stock: {stock}</p>
-      <div>
-        <ItemCount stock={stock} />
-      </div> */}
     </div>
   );
 };

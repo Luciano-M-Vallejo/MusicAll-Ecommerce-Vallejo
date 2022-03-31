@@ -1,8 +1,13 @@
+//STYLES
+import "./NavBar.css";
+
+//LIBRARIES
+import Stack from "@mui/material/Stack";
+import CartWidget from "./CartWidget";
+
+//COMPONENTS
 import Button from "@mui/material/Button";
 import clavedeDo from "../../assets/img/logo/clavedeDo.png";
-import Stack from "@mui/material/Stack";
-import "./NavBar.css";
-import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (

@@ -1,7 +1,14 @@
-import ItemListContainer from "./ItemListContainer";
-import Items from "./Items.js";
+//STYLES
+
+//LIBRARIES
 import { useState, useEffect } from "react";
 import Stack from '@mui/material/Stack';
+import Container from '@mui/material/Container';
+
+//COMPONENTS
+import ItemListContainer from "./ItemListContainer";
+import ItemDetailContainer from "./ItemDetailContainer";
+import Items from "./Items.js";
 
 
 const ShowList = ({ children }) => {
@@ -16,11 +23,6 @@ const ShowList = ({ children }) => {
 
   const [products, setProducts] = useState([])
 
-  //   async function getCuerdas2() {
-  //     const cuerdas = await getCuerdas();
-  //     console.log("Async: ", cuerdas);
-  //   }
-
   useEffect(() => {
     getInstruments().then((data) => {
       setProducts(data.promos)
@@ -28,24 +30,42 @@ const ShowList = ({ children }) => {
       console.log("Termino la llamada")
     })
   })
-  // console.log(
-  //   getInstruments().then((data) => {
-  //     console.log(data);
-  //   })
-  // );
-  //   console.log(getCuerdas2());
+
+  const getInstrument = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(Items);
+      }, 3000);
+    }); 
+  };
+
+  const [instrument, setInstrument] = useState([])
+
+    useEffect(() => {
+    getInstrument().then((data) => {
+      setInstrument(data.promos[0])
+    }).finally(() => {
+      console.log("Termino la llamada 2")
+    })
+  })
+  const time = Object.keys(instrument).length
 
   return (
     <div className="showItems">
       <h3>{children}</h3>
-      <Stack direction="row" spacing={2}>
-        {products.map((product) => {
-          const { id } = product
-          return (
-            <ItemListContainer data={product} key={id}/>
-          )
-        })}
-      </Stack>
+      <Container fixed>
+        <Stack direction="row" spacing={2}>
+          {products.map((product) => {
+            const { id } = product
+            return (
+              <ItemListContainer data={product} key={id}/>
+              )
+            })}
+        </Stack>
+        <Stack>
+          {time != 0 ? <ItemDetailContainer data={ instrument } /> : ''}
+        </Stack>
+      </Container>
     </div>
   );
 };

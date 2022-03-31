@@ -1,9 +1,14 @@
+//STYLES
 import "./items.css";
+
+//LIBRARIES
 import { useState } from "react";
 import { TextField, Button, ButtonGroup } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
+//COMPONENTS
 
 const Counter = (props) => {
   const { stock } = props;

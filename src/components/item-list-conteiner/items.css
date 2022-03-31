@@ -20,8 +20,14 @@
   padding: 10px;
 }
 .showItems{
-  align-items: baseline;
+  align-items: center;
 }
 .css-1ri6ub7-MuiPaper-root-MuiCard-root{
   box-shadow: 10px 1px 10px -1px rgb(0 0 0 / 20%), 0px 1px 100px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+.card-detail {
+  margin-top: 20px;
+}
+.content-instrument {
+  text-align-last: left;
 }
