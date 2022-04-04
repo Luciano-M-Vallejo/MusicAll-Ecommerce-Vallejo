@@ -8,10 +8,11 @@ import Container from '@mui/material/Container';
 //COMPONENTS
 import ItemListContainer from "./ItemListContainer";
 import ItemDetailContainer from "./ItemDetailContainer";
-import Items from "./Items.js";
+import Items from "../Utils/Items";
 
 
 const ShowList = ({ children }) => {
+
 
   const getInstruments = () => {
     return new Promise((resolve, reject) => {
@@ -63,7 +64,7 @@ const ShowList = ({ children }) => {
             })}
         </Stack>
         <Stack>
-          {time != 0 ? <ItemDetailContainer data={ instrument } /> : ''}
+          {time !== 0 ? <ItemDetailContainer data={ instrument } /> : ''}
         </Stack>
       </Container>
     </div>

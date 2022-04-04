@@ -8,7 +8,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions, Stack, Button } from '@mui/material';
 
-
 //COMPONENTS
 
 
@@ -17,6 +16,7 @@ const ItemDetailContainer = ({ data }) => {
     const { name, type, price, stock, img } = data;
 
     return (
+        
         <div className="item-list-container">
             <Stack direction="row" spacing={2} className="card-detail">
                 <Card sx={{ maxWidth: 500 }} >
