@@ -7,7 +7,7 @@ import Container from '@mui/material/Container';
 
 //COMPONENTS
 import ItemListContainer from "./ItemListContainer";
-import ItemDetailContainer from "./ItemDetailContainer";
+// import ItemDetailContainer from "./ItemDetailContainer";
 import Items from "../Utils/Items";
 
 
@@ -40,16 +40,16 @@ const ShowList = ({ children }) => {
     }); 
   };
 
-  const [instrument, setInstrument] = useState([])
-
+  // const [instrument, setInstrument] = useState([])
+// 
     useEffect(() => {
     getInstrument().then((data) => {
-      setInstrument(data.promos[0])
+      // setInstrument(data.promos[0])
     }).finally(() => {
       console.log("Termino la llamada 2")
     })
   })
-  const time = Object.keys(instrument).length
+  // const time = Object.keys(instrument).length
 
   return (
     <div className="showItems">
@@ -63,9 +63,9 @@ const ShowList = ({ children }) => {
               )
             })}
         </Stack>
-        <Stack>
+        {/* <Stack>
           {time !== 0 ? <ItemDetailContainer data={ instrument } /> : ''}
-        </Stack>
+        </Stack> */}
       </Container>
     </div>
   );

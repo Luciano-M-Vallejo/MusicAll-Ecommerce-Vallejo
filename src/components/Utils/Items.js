@@ -1,8 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
-import cello from "../../assets/img/cuerdas/cello.jpg"
-import guitarra from "../../assets/img/electronico/guitarra.jpg"
-import trompeta from "../../assets/img/viento/trompeta.jpg"
-import timbales from "../../assets/img/percusion/timbales.jpg"
+
+const cuerdasImag = require.context('../../assets/img/cuerdas', true)
+const vientoImag = require.context('../../assets/img/viento', true)
+const percusionImag = require.context('../../assets/img/percusion', true)
+const electronicoImag = require.context('../../assets/img/electronico', true)
+
 
 
 const cuerdas = [
@@ -141,7 +143,7 @@ const electronicos = [
 const promos = [
   {
     id: 1,
-    img: cello,
+    img: cuerdasImag('./cello.jpg'),
     name: "Cello",
     type: "Cuerdas",
     price: 100,
@@ -149,7 +151,7 @@ const promos = [
   },
   {
     id: 2,
-    img: timbales,
+    img: percusionImag('./timbales.jpg'),
     name: "Timbales",
     type: "Percusion",
     price: 100,
@@ -157,7 +159,7 @@ const promos = [
   },
   {
     id: 3,
-    img: guitarra,
+    img: electronicoImag('./guitarra.jpg'),
     name: "Guitarra",
     type: "Electrica",
     price: 100,
@@ -165,7 +167,7 @@ const promos = [
   },
   {
     id: 4,
-    img: trompeta,
+    img: vientoImag('./trompeta.jpg'),
     name: "Trompeta",
     type: "Viento",
     price: 100,

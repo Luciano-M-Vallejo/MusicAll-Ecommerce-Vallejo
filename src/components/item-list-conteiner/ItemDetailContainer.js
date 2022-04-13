@@ -6,9 +6,10 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions, Stack, Button } from '@mui/material';
+import { CardActionArea, CardActions, Stack } from '@mui/material';
 
 //COMPONENTS
+import ItemCount from "./ItemCount.js";
 
 
 const ItemDetailContainer = ({ data }) => {
@@ -44,12 +45,9 @@ const ItemDetailContainer = ({ data }) => {
                                 </Typography>
                                 <h3>en 12 cuotas de  ${(price/12).toFixed(2)} </h3>
                         </CardContent>
-                        <Typography variant="h7" color="black" className="stockText">
-                            Stock Disponible: { stock}
-                        </Typography>
                     </CardActionArea>
                     <CardActions>
-                        <Button variant="contained" size="small" >Comprar Ahora</Button>
+                        <ItemCount stock={stock} />
                     </CardActions>
                 </Card>
             </Stack>

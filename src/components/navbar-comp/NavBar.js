@@ -48,18 +48,6 @@ const NavBar = () => {
               </Button>
             )
           })}
-          {/* <Button variant="contained" size="small" className="button">
-            <Link to={ '/' } className="links">Home</Link>
-          </Button>
-          <Button variant="contained" size="small" className="button">
-            <Link to={ '/' } className="links">Productos</Link>
-          </Button>
-          <Button variant="contained" size="small" className="button">
-            <Link to={ '/' } className="links">Nosotros</Link>
-          </Button>
-          <Button variant="contained" size="small" className="button">
-            <Link to={ '/contacto' } className="links">Contactos</Link>
-          </Button> */}
           <CartWidget />
         </Stack>
       </div>

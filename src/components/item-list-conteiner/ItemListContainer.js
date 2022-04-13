@@ -6,19 +6,32 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions } from '@mui/material'
+import { CardActionArea, CardActions, Button } from '@mui/material'
 import { Link } from "react-router-dom";
+import CartContext from "../context/CartContext";
+import { useEffect,useContext } from "react";
 
 //COMPONENTS
-import ItemCount from "./ItemCount.js";
+
 
 const ItemListContainer = ({ data }) => {
-  const { name, type, price, stock, img, id } = data;
+  const { name, type, price, img, id } = data;
+  const { cartInstruments, addInstrumentToCart } = useContext(CartContext)
+
+  const addToCart = (e) => {
+    e.stopPropagation();
+    console.log(cartInstruments)
+    addInstrumentToCart(data);
+  }
   
+  useEffect(() => {
+    console.log('cartInstrument: ', cartInstruments)
+    
+  }, [])
 
   return (
     <div className="item-list-container">
-      <Card sx={{ maxWidth: 345 }} >
+      <Card sx={{ maxWidth: 345 }} className="generalCard">
         <Link to={`/productos/${id}`} className="decorations">
           <CardActionArea>
           <CardMedia
@@ -41,11 +54,11 @@ const ItemListContainer = ({ data }) => {
           </CardActionArea>
         </Link>
         <CardActions>
-          <ItemCount stock={stock} />
+            <Button variant="contained" size="small" className="buttonBuy" onClick={addToCart} >Comprar Ahora</Button>
         </CardActions>
-        <Typography variant="h7" color="black" className="stockText">
+        {/* <Typography variant="h7" color="black" className="stockText">
             Stock Disponible: { stock}
-          </Typography>
+          </Typography> */}
       </Card>
     </div>
   );
