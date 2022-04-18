@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 //COMPONENTS
 import Items from "../Utils/Items";
-import ItemDetailContainer from '../item-list-conteiner/ItemDetailContainer';
+import ItemDetail from '../item-list-conteiner/ItemDetail';
 
 
 const DatailPage = () => {
@@ -45,7 +45,7 @@ const DatailPage = () => {
   }
     return (
       <Container>
-        <ItemDetailContainer data={ product }/>
+        <ItemDetail data={ product }/>
       </Container>
     )
 }

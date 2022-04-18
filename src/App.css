@@ -15,12 +15,12 @@
 
 .App-header {
   background-color: white;
-  /* min-height: 100vh; */
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: initial;
   align-items: center;
   justify-content: center;
-  /* font-size: calc(10px + 2vmin); */
+  font-size: calc(10px + 2vmin);
   color: #282c34;
 }
 
@@ -40,4 +40,8 @@
 
 .contact {
   padding: 20px 50px;
+}
+
+.decorations {
+  border: none;
 }

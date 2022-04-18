@@ -1,21 +1,19 @@
 //STYLES
 
 //LIBRARIES
+import { useContext, useState } from "react";
 import Badge from "@mui/material/Badge";
-import { styled } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
+import { styled, IconButton, Menu, MenuItem, Stack, Button } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Stack from "@mui/material/Stack";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Link } from "react-router-dom";
+
 
 
 
 //COMPONENTS
 import CartContext from "../context/CartContext";
-import { useContext } from "react";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -29,34 +27,41 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const CartWidget = () => {
 
   const { cartInstruments } = useContext(CartContext)
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   
   return (
     <div>
       <IconButton>
-        <StyledBadge badgeContent={cartInstruments.length} color="secondary">
-          <ShoppingCartIcon />
+        <StyledBadge badgeContent={cartInstruments.length} color="primary">
+          <ShoppingCartIcon
+            onClick={handleClick}
+            size="medium"
+            sx={{ ml: 2 }}
+            aria-controls={open ? 'account-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+          />
         </StyledBadge>
       </IconButton>
-      <Menu>
-        <Divider>
-        {cartInstruments.map((cartInstruments) => {
-          return (
-            <MenuItem key={cartInstruments.id}>
-                {/* <div>
-                    <img src={`./${cartInstruments.image}`} /> 
-                </div> */}
-                <div>
-                    <p>{cartInstruments.title}</p>
-                    <span>$ {cartInstruments.price}</span>
-                </div>
-                <div>
-                    <DeleteIcon />
-                </div>
-            </MenuItem>
-          )
-        })}
-          </Divider>
+      {cartInstruments.length > 0 ? (
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+        >
+          <h6>Usted tiene Instrumentos en su carrito</h6>
+          <Button><Link to="/carrito" >Ver Carrito</Link></Button>
         </Menu>
+      ) : ( '' )
+      }
     </div>
   );
 };

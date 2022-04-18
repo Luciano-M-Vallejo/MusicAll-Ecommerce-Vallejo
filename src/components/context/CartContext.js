@@ -8,20 +8,21 @@ const CartProvider = ({children}) => {
 
     const addInstrumentToCart = (instrument) => {
         console.log('Instrumento: ', instrument)
-            setCartInstruments(cartInstruments => [...cartInstruments, instrument])
+            let exist = cartInstruments.find(cartInstrument => cartInstrument.id === instrument.id)
+            !exist && setCartInstruments(cartInstruments => [...cartInstruments, instrument])
     }
 
     const totalPrice = () => {
-        let total = 0
+        let total = 1500
 
-        cartInstruments.map( (cartInstrument) => {
-           total = cartInstrument.price + total
-        })
+        // cartInstruments.map( (cartInstrument) => {
+        //    total = cartInstrument.price + total
+        // })
 
         return total
     }
 
-    const deleteProduct = (instrument) => {
+    const deleteInstrument = (instrument) => {
         setCartInstruments(cartInstruments.filter( cartInstrument => cartInstrument.id !== instrument.id))
     }
 
@@ -29,7 +30,7 @@ const CartProvider = ({children}) => {
         cartInstruments,
         addInstrumentToCart,
         totalPrice,
-        deleteProduct
+        deleteInstrument
     }
 
     return(

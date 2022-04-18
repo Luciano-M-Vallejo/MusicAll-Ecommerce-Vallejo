@@ -2,31 +2,57 @@
 import "./Footer.css";
 
 //LIBRARIES
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import Icon from '@mui/material/Icon';
-import { green } from '@mui/material/colors';
+// import LocationOnIcon from '@mui/icons-material/LocationOn';
+import {LocationOn, Phone, Email, Facebook, LinkedIn, Twitter, Instagram } from '@mui/icons-material';
+import { Grid, Container, List, ListItem, ListItemText, Stack, IconButton } from '@mui/material';
+
 
 
 //COMPONENTS
 
 
 const Footer = () => {
+
     return (
         <div className="footer">
             <footer>
-                <Icon>
-                    <LocationOnIcon />
-                </Icon>
-                <h3>Direccion</h3>
-                <h3>telefono</h3>
-                <h3>email</h3>
-                <h3>Seginos en :</h3>
+                <Container fixed disableGutters>
+                    <Grid container  columnSpacing>
+                        <Grid xs={8} className="grid">
+                            <List dense>
+                                <ListItem>
+                                    <LocationOn />
+                                <ListItemText primary=" Av.Urano 1.3M entre Neptuno y Pluton" />
+                                </ListItem>
+                                <ListItem>
+                                    <Phone />
+                                <ListItemText primary=" +999 11 0303456 " />
+                                </ListItem>
+                                <ListItem>
+                                    <Email />
+                                <ListItemText primary=" info@clavededo.com.ar " />
+                                </ListItem>
+                            </List>
+                        </Grid>
+                        <Grid xs={4}>
+                            <h5 className="networks" >Seginos en :</h5>
+                            <Stack direction="row" spacing={2}>
+                                <IconButton>
+                                    <Facebook />
+                                </IconButton>    
+                                <IconButton>
+                                    <Instagram />
+                                </IconButton>    
+                                <IconButton>
+                                    <Twitter />
+                                </IconButton>    
+                                <IconButton>
+                                    <LinkedIn />
+                                </IconButton>    
+                            </Stack>
+                        </Grid>
+                    </Grid>
+                </Container>
             </footer>
         </div>
     )

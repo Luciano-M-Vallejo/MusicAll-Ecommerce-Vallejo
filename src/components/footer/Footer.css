@@ -1,11 +1,19 @@
 .footer {
     background: #282c34;
     /* min-height: 100vh; */
-    display: block;
+    max-height: 150px;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: space-around;
     /* font-size: calc(10px + 2vmin); */
     color: white;
-    height: 150px;
+}
+
+.networks {
+    padding-top: 10px;
+}
+
+.grid {
+    max-height: 150px;
 }
