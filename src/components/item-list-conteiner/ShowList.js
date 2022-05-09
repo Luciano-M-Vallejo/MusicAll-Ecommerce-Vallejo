@@ -6,64 +6,83 @@ import { useState, useEffect } from "react";
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Carousel from 'react-material-ui-carousel'
-import { Paper, Button, Grid } from '@mui/material'
+import { Paper, Button } from '@mui/material'
 import { Link } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
 
 //COMPONENTS
+import dataBaseFire from "../Utils/Firebase";
 import ItemListContainer from "./ItemListContainer";
-import Items from "../Utils/Items";
+// import Items from "../Utils/Items";
 
 
-const ShowList = ({ children }) => {
+const ShowList = () => {
+  
+  const imag = require.context('../../assets/img', true)
 
   const [loading, setLoading] = useState(true)
+  const [instruments, setInstruments] = useState([])
 
-  const getInstruments = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(Items);
-      }, 2000);
-    });
+  const getInstruments = async () => {
+    const itemsCollection = collection(dataBaseFire, 'promos')
+    const intrumentsSnapshot = await getDocs(itemsCollection)
+    const instrumentsList = intrumentsSnapshot.docs.map((doc) => {
+      let instrument = doc.data()
+      instrument.id = doc.id
+      // console.log(instrument)
+      return instrument
+    })
+    console.log(instrumentsList)
+    return instrumentsList
+    //PROMESA LOCAL
+    // return new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(Items);
+    //   }, 2000);
+    // });
   };
 
-  const [products, setProducts] = useState([])
 
   useEffect(() => {
-    getInstruments().then((data) => {
+    getInstruments()
+    getInstruments().then((instruments) => {
       setLoading(false)
-      setProducts(data.promos)
-    }).finally(() => {})
-  })
+      setInstruments(instruments)
+    })
+  },[])
 
-  const getInstrument = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(Items);
-      }, 3000);
-    }); 
-  };
+  // const getInstrument = () => {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve(Items);
+  //     }, 3000);
+  //   }); 
+  // };
 
-  // const [instrument, setInstrument] = useState([])
 // 
-    useEffect(() => {
-    getInstrument().then((data) => {
-      // setInstrument(data.promos[0])
-    }).finally(() => {})
-  })
+  //   useEffect(() => {
+  //   getInstrument().then((data) => {
+  //     // setInstrument(data.promos[0])
+  //   }).finally(() => {})
+  // })
   // const time = Object.keys(instrument).length
 
   return (
     <div className="showItems">
-      <h3>{children}</h3>
       {loading ? (
-        <h2>Cargando...</h2>
+        <div class="loader-wrapper">
+          <div class="loader">
+            <div class="loader loader-inner"></div>
+          </div>
+        </div>
       ) : (
-        <Container fixed>
+        <Container fixed className='container'>
           <Carousel>
-            { products.map((instrument, i) => {
+            { instruments.map((instrument, i) => {
               return (
                 <Paper>
-                  <img src={instrument.img} alt={instrument.name} height={180} width={ 280 }/>
+                  {/* <img src={instrument.img} alt={instrument.name} height={180} width={ 280 }/> */}
+                  <img src={imag(`./${instrument.type}/${instrument.img}`)} alt={instrument.name} height={180} width={280} />
                   <h2>{instrument.name}</h2>
                   <p>{instrument.description}</p>
                   <Link to={`/productos/${instrument.id}`} className="decorations">
@@ -77,16 +96,13 @@ const ShowList = ({ children }) => {
           </Carousel>
           <Stack direction="row" spacing={1} >
             
-            {products.map((product) => {
-              const { id } = product
+            {instruments.map((instrument) => {
+              const { id } = instrument
               return (
-                  <ItemListContainer data={product} key={id}/>
+                  <ItemListContainer data={instrument} key={id}/>
                 )
               })}
           </Stack>
-          {/* <Stack>
-            {time !== 0 ? <ItemDetailContainer data={ instrument } /> : ''}
-          </Stack> */}
         </Container>
       )}
     </div>

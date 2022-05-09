@@ -40,8 +40,113 @@
 
 .contact {
   padding: 20px 50px;
+  height: 950px;
 }
 
 .decorations {
   border: none;
+}
+
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cart-footer>button.btn-custom {
+  max-width: 300px;
+  height: fit-content;
+  background: white !important;
+  color: black !important;
+  border: 1px solid black;
+}
+
+.cart-checkout-details {
+  background: #fafafa;
+  padding-top: 10px;
+}
+
+.cart-checkout-details .cart-checkout__subtotal,
+.cart-checkout-details .cart-checkout__total {
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.container {
+  margin: 20px 20px;
+  justify-content: center !important;
+}
+
+.loader-wrapper {
+  width: 200px;
+  height: 200px;
+
+}
+
+.loader {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 10px solid black;
+  border-top-color: blue;
+  border-radius: 50%;
+  animation: rotate 5s linear infinite;
+}
+
+.loader-inner {
+  border-top-color: greenyellow;
+  border-bottom-color: white;
+  animation-duration: 2.5s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: scale(1) rotate(360deg);
+  }
+
+  50% {
+    transform: scale(.8) rotate(-360deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.alineamiento {
+  text-align: -webkit-center;
+}
+
+.alineamiento2 {
+  text-align: -webkit-center;
+  padding: 10px 10px;
+}
+
+.css-1oqqzyl-MuiContainer-root {
+  height: 950px;
+}
+
+.aboutUs {
+  padding-top: 200px;
+}
+
+.css-1nrlq1o-MuiFormControl-root {
+  min-width: 500px !important;
+}
+
+.css-1nrlq1o-MuiFormControl-root {
+  padding: 17px !important
+}
+
+.buttonBuy {
+  text-decoration: none;
+  color: white;
+}
+
+.buttonBuy:hover {
+  color: black
 }

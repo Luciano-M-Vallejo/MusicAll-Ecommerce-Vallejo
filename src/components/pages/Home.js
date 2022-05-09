@@ -10,9 +10,7 @@ const HomePage = () => {
 
   return (
     <header className="App-header">
-      <ShowList>
-        <p>Productos en Oferta</p>
-      </ShowList>
+      <ShowList />
     </header>
   )
 }

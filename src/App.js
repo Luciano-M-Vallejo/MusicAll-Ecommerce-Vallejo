@@ -11,6 +11,7 @@ import HomePage from "./components/pages/Home";
 import ContactPage from "./components/pages/Contact";
 import ItemDetailContainer from "./components/pages/ItemDetailContainer"
 import AboutUs from "./components/pages/AboutUs"
+import InstrumentsCategory from "./components/pages/InstrumentsCategory"
 import CartPage from "./components/pages/CartPage";
 import NotFound from "./components/pages/NotFound";
 import {CartProvider} from "./components/context/CartContext";
@@ -23,7 +24,8 @@ function App() {
             <NavBar />
             <Routes>
               <Route path='/' element={<HomePage />} />
-              <Route path='/contacto' element={ <ContactPage /> } />
+              <Route path='/contacto' element={<ContactPage />} />
+              <Route path='/productos' element={<InstrumentsCategory />} />
               <Route path='/productos/:id' element={ <ItemDetailContainer /> } />
               <Route path='/Nosotros' element={<AboutUs />} />
               <Route path="/carrito" element={<CartPage />}/>

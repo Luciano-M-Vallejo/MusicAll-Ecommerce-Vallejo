@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="footer">
             <footer>
                 <Container fixed disableGutters>
-                    <Grid container  columnSpacing>
+                    <Grid container >
                         <Grid xs={8} className="grid">
                             <List dense>
                                 <ListItem>

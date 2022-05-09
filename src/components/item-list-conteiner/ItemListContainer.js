@@ -19,6 +19,7 @@ import Container from '@mui/material/Container';
 const ItemListContainer = ({ data }) => {
 
   const { name, type, price, img, id } = data;
+  const imag = require.context('../../assets/img', true)
   const { cartInstruments, addInstrumentToCart } = useContext(CartContext)
 
   const addToCart = (e) => {
@@ -29,18 +30,19 @@ const ItemListContainer = ({ data }) => {
   
   useEffect(() => {
     console.log('cartInstrument: ', cartInstruments)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <div className="item-list-container">
-      <Container>
+      <Container fixed className='container'>
         <Card sx={{ maxWidth: 345 }} className="generalCard">
           <Link to={`/productos/${id}`} className="decorations">
             <CardActionArea>
             <CardMedia
               component="img"
               height={140}
-              image={img}
+              image={imag(`./${type}/${img}`)}
               alt={name}
             />
             <CardContent>

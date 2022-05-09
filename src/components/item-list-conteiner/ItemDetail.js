@@ -13,45 +13,54 @@ import ItemCount from "./ItemCount.js";
 
 
 const ItemDetailContainer = ({ data }) => {
+    
+    console.log(data)
 
-    const { name, type, price, stock, img } = data;
+    const imag = require.context('../../assets/img', true)
+
+    const { name, type, price, stock, img, description, detail } = data;
+
+    // console.log(imag(`./${type}/${img}`))
 
     return (
-        
-        <div className="item-list-container">
-            <Stack direction="row" spacing={2} className="card-detail">
-                <Card sx={{ maxWidth: 500 }} >
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            height={520}
-                            image={img}
-                            alt={name}
-                        /> 
-                    </CardActionArea>
-                </ Card >
-                <Card sx={{ maxWidth: 500 }}>
-                    <CardActionArea className="content-instrument">
-                        <CardContent>
-                            <Typography gutterBottom variant="h3" component="div" >
-                                { name } <p>Cervini By Cremona Hc-100 Estudio Tamaño 4/4 Funda</p> 
+        data !== [] ? (
+            <div className="item-list-container">
+                <Stack direction="row" spacing={2} className="card-detail">
+                    <Card sx={{ maxWidth: 500 }} >
+                        <CardActionArea>
+                            {/* <CardMedia
+                                component="img"
+                                height={520}
+                                image={imag(`./${type}/${img}`)}
+                                alt={name}
+                            />  */}
+                        </CardActionArea>
+                    </ Card >
+                    <Card sx={{ maxWidth: 500 }}>
+                        <CardActionArea className="content-instrument">
+                            <CardContent>
+                                <Typography gutterBottom variant="h3" component="div" >
+                                    {name} - { detail }
+                                    </Typography>
+                                    
+                                <Typography variant="body2" color="text.secondary" className="secudaryText">
+                                    Tipo de Istrumento: {type}
                                 </Typography>
-                                
-                            <Typography variant="body2" color="text.secondary" className="secudaryText">
-                                Tipo de Istrumento: {type}
-                            </Typography>
-                            <Typography variant="h5" color="black">
-                                    Precio: $ {price}
-                                </Typography>
-                                <h3>en 12 cuotas de  ${(price/12).toFixed(2)} </h3>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <ItemCount stock={stock} />
-                    </CardActions>
-                </Card>
-            </Stack>
-        </div>
+                                <Typography variant="h5" color="black">
+                                        Precio: $ {price}
+                                    </Typography>
+                                    <h3> En 12 cuotas de  ${(price/12).toFixed(2)} </h3>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions>
+                            <ItemCount stock={stock} />
+                        </CardActions>
+                    </Card>
+                </Stack>
+            </div>
+        ): (
+            <h2>Cargando...</h2>    
+        )
     );
 }
 

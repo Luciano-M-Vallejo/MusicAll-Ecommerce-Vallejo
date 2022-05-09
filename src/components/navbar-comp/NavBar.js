@@ -43,7 +43,7 @@ const NavBar = () => {
           </Link>
           {pages.map((page) => {
             return (
-              <Button variant="contained" size="small" className="button">
+              <Button variant="contained" size="medium" className="button" key={page.id}>
                 <Link to={page.url} className="links">{ page.title }</Link>
               </Button>
             )
